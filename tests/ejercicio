@@ -1,0 +1,44 @@
+--CREACIOND EM BASE DE DATOS EN SQLITE
+
+sqlite3 my_page.db
+SQLite version 3.22.0 2018-01-22 18:45:57
+Enter ".help" for usage hints.
+sqlite> create table user(first_name varchar(45), last_name(45), hobbies text);
+Error: near "(": syntax error
+sqlite> create table user(first_name VARCHAR(45), last_name VARCHAR(45), hobbies text);
+sqlite> INSERT INTO USER VALUES("Jesus", "Camarena", "Play Baseball");
+sqlite> select * from user
+   ...>
+   ...> ;
+Jesus|Camarena|Play Baseball
+sqlite> INSERT INTO USER VALUES("Emmanuel", "Camarena", "Play Baseball and Karate");
+sqlite> INSERT INTO USER VALUES("Sofia", "Camarena", "Karate and Dacing");
+sqlite> select * from user;
+Jesus|Camarena|Play Baseball
+Emmanuel|Camarena|Play Baseball and Karate
+Sofia|Camarena|Karate and Dacing
+
+
+
+ sqlite3 my_page.db
+SQLite version 3.22.0 2018-01-22 18:45:57
+Enter ".help" for usage hints.
+sqlite> create table product(name VARCHAR(45), price float, description text, active boolean);
+sqlite> insert into product values("Laptop", 100.00, "ThihkPad Lenovo", true)
+   ...> ;
+Error: no such column: true
+sqlite> insert into product values("Laptop", 100.00, "ThihkPad Lenovo", 1);
+\sqlite> insert into product values("Samsung s50", 1000.00, "SamartPhone", 1);
+sqlite> select * from products
+   ...> ;
+Error: no such table: products
+sqlite> select * from product;
+Laptop|100.0|ThihkPad Lenovo|1
+Samsung s50|1000.0|SamartPhone|1
+sqlite> update product set active=0 where name="Samsung s50"
+   ...> ;
+sqlite> select * from product;
+Laptop|100.0|ThihkPad Lenovo|1
+Samsung s50|1000.0|SamartPhone|0
+
+
